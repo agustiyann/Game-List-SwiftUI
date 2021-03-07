@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct GameResponse {
+struct GameResponse: Decodable {
     let results: [Game]
 }
 
-struct Game {
+struct Game: Decodable {
     let id: Int
     let name: String
     let released: String
@@ -19,4 +19,14 @@ struct Game {
     let rating: Double
     let metaScore: Int
     let playtime: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case released
+        case backgroundImage = "background_image"
+        case rating
+        case metaScore = "metacritic"
+        case playtime
+    }
 }
