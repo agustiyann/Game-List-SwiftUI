@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Kingfisher
 
 struct GameRow: View {
     
@@ -14,9 +15,10 @@ struct GameRow: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0, content: {
-            Image("gtav")
+            KFImage(URL(string: game.backgroundImage!))
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .scaledToFill()
+                .frame(width: UIScreen.main.bounds.size.width - 40, height: UIScreen.main.bounds.size.height / 4)
                 .cornerRadius(10)
                 .clipped()
                 .overlay(
@@ -38,7 +40,7 @@ struct GameRow: View {
                     Rectangle()
                         .foregroundColor(.clear)
                         .background(RoundedCorners(color: Color.black, oppacity: 0.3, tl: 0, tr: 0, bl: 10, br: 10))
-                        .frame(height: 50)
+                        .frame(height: 40)
                         .overlay(
                             Text(game.name)
                                 .fontWeight(.heavy)
@@ -58,7 +60,6 @@ struct GameRow: View {
 
 struct GameRow_Previews: PreviewProvider {
     static var previews: some View {
-        GameRow(game: Game(id: 1, name: "GTA V", released: "21-08-2018", backgroundImage: "ahmad_dahlan", rating: 4.5, metaScore: 97, playtime: 69))
-            .previewLayout(.fixed(width: 400, height: 400))
+        GameRow(game: Game(id: 1, name: "GTA V", released: "21-08-2018", backgroundImage: "gtav", rating: 4.5, metaScore: 97, playtime: 69))
     }
 }
