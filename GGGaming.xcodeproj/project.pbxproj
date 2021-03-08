@@ -18,6 +18,7 @@
 		CF8E53B025F4BCE500195CD7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E53AF25F4BCE500195CD7 /* HomeViewModel.swift */; };
 		CF8E53B425F4C7D800195CD7 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E53B325F4C7D800195CD7 /* HomePage.swift */; };
 		CF8E53B825F4CD3400195CD7 /* GameRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E53B725F4CD3400195CD7 /* GameRow.swift */; };
+		CFA6B76525F5D63A00CD8D76 /* RundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA6B76425F5D63A00CD8D76 /* RundedCorners.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		CF8E53AF25F4BCE500195CD7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CF8E53B325F4C7D800195CD7 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		CF8E53B725F4CD3400195CD7 /* GameRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRow.swift; sourceTree = "<group>"; };
+		CFA6B76425F5D63A00CD8D76 /* RundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RundedCorners.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		CF8E538D25F48AF700195CD7 /* GGGaming */ = {
 			isa = PBXGroup;
 			children = (
+				CFA6B76325F5D58400CD8D76 /* Utils */,
 				CF8E538E25F48AF700195CD7 /* AppDelegate.swift */,
 				CF8E539025F48AF700195CD7 /* SceneDelegate.swift */,
 				CF8E539225F48AF700195CD7 /* ContentView.swift */,
@@ -120,6 +123,14 @@
 				CF8E53B725F4CD3400195CD7 /* GameRow.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		CFA6B76325F5D58400CD8D76 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CFA6B76425F5D63A00CD8D76 /* RundedCorners.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 				CF8E53AA25F4917300195CD7 /* GameService.swift in Sources */,
 				CF8E539325F48AF700195CD7 /* ContentView.swift in Sources */,
 				CF8E53B425F4C7D800195CD7 /* HomePage.swift in Sources */,
+				CFA6B76525F5D63A00CD8D76 /* RundedCorners.swift in Sources */,
 				CF8E53A525F48B8200195CD7 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

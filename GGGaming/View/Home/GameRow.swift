@@ -20,34 +20,30 @@ struct GameRow: View {
                 .cornerRadius(10)
                 .clipped()
                 .overlay(
-                    VStack(alignment: .center) {
-                        Text(String(game.rating))
-                            .fontWeight(.heavy)
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.yellow)
-                            .clipShape(Circle())
-                            .opacity(0.8)
-                        
-                        Text(game.released)
-                            .fontWeight(.heavy)
-                            .foregroundColor(.white)
-                            .padding(4)
-                            .background(Color.green)
-                            .cornerRadius(4)
-                    }
-                    .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 10)),
-                    alignment: .topTrailing
+                    Rectangle()
+                        .frame(height: 30)
+                        .foregroundColor(.clear)
+                        .background(RoundedCorners(color: Color.black, oppacity: 0.3, tl: 10, tr: 10, bl: 0, br: 0))
+                        .overlay(
+                            Text("🗓 \(game.released) ⭐️ \(String(game.rating))")
+                                .fontWeight(.heavy)
+                                .font(.system(.caption))
+                                .foregroundColor(.white)
+                                .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)),
+                            alignment: .trailing
+                        ),
+                    alignment: .top
                 )
                 .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(.black)
-                        .opacity(0.3)
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .background(RoundedCorners(color: Color.black, oppacity: 0.3, tl: 0, tr: 0, bl: 10, br: 10))
                         .frame(height: 50)
                         .overlay(
                             Text(game.name)
                                 .fontWeight(.heavy)
                                 .font(.system(.title2))
+                                .lineLimit(1)
                                 .foregroundColor(.white)
                                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)),
                             alignment: .leading
@@ -55,6 +51,7 @@ struct GameRow: View {
                     alignment: .bottom
                 )
         })
+        .padding(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
 
     }
 }

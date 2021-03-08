@@ -34,7 +34,7 @@ struct HomeGameList: View {
     
     var body: some View {
         if #available(iOS 14, *) {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack {
                     ForEach(games, id: \.id) { game in
                         ZStack {
@@ -44,14 +44,14 @@ struct HomeGameList: View {
                 }
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
-            .navigationBarTitle("Game", displayMode: .large)
+            .navigationBarTitle("Game List", displayMode: .large)
         } else {
             List(self.games) { game in
                 ZStack {
                     GameRow(game: game)
                 }
             }
-            .navigationBarTitle("Game", displayMode: .large)
+            .navigationBarTitle("Game List", displayMode: .large)
             .listStyle(PlainListStyle())
         }
     }
