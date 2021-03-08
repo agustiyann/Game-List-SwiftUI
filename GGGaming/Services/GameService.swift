@@ -34,6 +34,7 @@ class GameService {
                 print("Empty Response")
                 return
             }
+            
             print("Response status code: \(response.statusCode)")
             
             guard let data = data else {

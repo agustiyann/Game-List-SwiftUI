@@ -11,7 +11,7 @@ struct GameResponse: Decodable {
     let results: [Game]
 }
 
-struct Game: Decodable {
+struct Game: Decodable, Identifiable {
     let id: Int
     let name: String
     let released: String

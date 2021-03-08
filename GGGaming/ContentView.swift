@@ -8,9 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    init() {
+        UITableView.appearance().separatorStyle = .none
+        UITableView.appearance().showsVerticalScrollIndicator = false
+    }
+        
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView {
+            HomePage()
+                .tabItem {
+                    Image(systemName: "star")
+                    Text("Home")
+                }
+        }
     }
 }
 
