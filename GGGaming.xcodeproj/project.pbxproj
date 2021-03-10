@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF00F11D25F60816009A9FDF /* GameDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF00F11C25F60816009A9FDF /* GameDetailPage.swift */; };
+		CF00F12125F678C2009A9FDF /* GameDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF00F12025F678C2009A9FDF /* GameDetail.swift */; };
 		CF8E538F25F48AF700195CD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E538E25F48AF700195CD7 /* AppDelegate.swift */; };
 		CF8E539125F48AF700195CD7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E539025F48AF700195CD7 /* SceneDelegate.swift */; };
 		CF8E539325F48AF700195CD7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E539225F48AF700195CD7 /* ContentView.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF00F11C25F60816009A9FDF /* GameDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailPage.swift; sourceTree = "<group>"; };
+		CF00F12025F678C2009A9FDF /* GameDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetail.swift; sourceTree = "<group>"; };
 		CF8E538B25F48AF700195CD7 /* GGGaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGGaming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8E538E25F48AF700195CD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF8E539025F48AF700195CD7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF00F11B25F6079C009A9FDF /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				CF00F11C25F60816009A9FDF /* GameDetailPage.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		CF8E538225F48AF700195CD7 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				CF8E53A425F48B8200195CD7 /* Game.swift */,
+				CF00F12025F678C2009A9FDF /* GameDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -112,6 +125,7 @@
 		CF8E53AD25F4BBD200195CD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CF00F11B25F6079C009A9FDF /* Detail */,
 				CF8E53AE25F4BC1A00195CD7 /* Home */,
 			);
 			path = View;
@@ -214,11 +228,13 @@
 				CF8E538F25F48AF700195CD7 /* AppDelegate.swift in Sources */,
 				CF8E53B025F4BCE500195CD7 /* HomeViewModel.swift in Sources */,
 				CF8E53B825F4CD3400195CD7 /* GameRow.swift in Sources */,
+				CF00F11D25F60816009A9FDF /* GameDetailPage.swift in Sources */,
 				CF8E539125F48AF700195CD7 /* SceneDelegate.swift in Sources */,
 				CF8E53AA25F4917300195CD7 /* GameService.swift in Sources */,
 				CF8E539325F48AF700195CD7 /* ContentView.swift in Sources */,
 				CF8E53B425F4C7D800195CD7 /* HomePage.swift in Sources */,
 				CFA6B76525F5D63A00CD8D76 /* RundedCorners.swift in Sources */,
+				CF00F12125F678C2009A9FDF /* GameDetail.swift in Sources */,
 				CF8E53A525F48B8200195CD7 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

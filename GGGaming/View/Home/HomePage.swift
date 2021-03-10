@@ -19,6 +19,12 @@ struct HomePage: View {
                     if viewModel.games.count != 0 {
                         HomeGameList(games: self.viewModel.games)
                     }
+                } else {
+                    VStack(spacing: 1) {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: .green))
+                            .scaleEffect(x: 2, y: 2, anchor: .center)
+                    }
                 }
             }
             .onAppear {
@@ -37,8 +43,10 @@ struct HomeGameList: View {
             ScrollView(showsIndicators: false) {
                 LazyVStack {
                     ForEach(games, id: \.id) { game in
-                        ZStack {
-                            GameRow(game: game)
+                        NavigationLink(destination: GameDetailPage(id: game.id)) {
+                            ZStack {
+                                GameRow(game: game)
+                            }
                         }
                     }
                 }
@@ -49,6 +57,9 @@ struct HomeGameList: View {
             List(self.games) { game in
                 ZStack {
                     GameRow(game: game)
+                    NavigationLink(destination: GameDetailPage(id: game.id)) {
+                        EmptyView()
+                    }
                 }
             }
             .navigationBarTitle("Game List", displayMode: .large)
