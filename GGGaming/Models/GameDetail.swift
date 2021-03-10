@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct GameDetailResponse: Decodable {
-    let results: [GameDetail]
-}
-
 struct GameDetail: Decodable, Identifiable {
     let id: Int
     let name: String
@@ -30,5 +26,16 @@ struct GameDetail: Decodable, Identifiable {
         case rating
         case metaScore = "metacritic"
         case playtime
+    }
+    
+    init(id: Int, name: String, description: String, released: String, backgroundImage: String?, rating: Double, metaScore: Int, playtime: Int) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.released = released
+        self.backgroundImage = backgroundImage
+        self.rating = rating
+        self.metaScore = metaScore
+        self.playtime = playtime
     }
 }

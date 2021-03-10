@@ -55,4 +55,39 @@ class GameService {
         }.resume()
     }
     
+    func getGameDetail(id: Int, completion: @escaping (Result<GameDetail, Error>) ->  Void) {
+        let components: URLComponents = URLComponents(string: self.baseUrl + "games/\(id)")!
+        
+        let request = URLRequest(url: components.url!)
+        self.urlSession.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                print("DataTask Error: \(error.localizedDescription)")
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                print("Empty Response")
+                return
+            }
+            
+            print("Response status code: \(response.statusCode)")
+            
+            guard let data = data else {
+                print("Empty Data")
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let gameDetail = try decoder.decode(GameDetail.self, from: data)
+                
+                DispatchQueue.main.async {
+                    completion(.success(gameDetail))
+                }
+            } catch {
+                completion(.failure(error))
+            }
+        }.resume()
+    }
+    
 }

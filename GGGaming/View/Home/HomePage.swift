@@ -20,7 +20,7 @@ struct HomePage: View {
                         HomeGameList(games: self.viewModel.games)
                     }
                 } else {
-                    VStack(spacing: 1) {
+                    VStack {
                         ProgressView()
                             .progressViewStyle(CircularProgressViewStyle(tint: .green))
                             .scaleEffect(x: 2, y: 2, anchor: .center)

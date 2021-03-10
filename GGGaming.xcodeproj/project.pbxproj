@@ -22,6 +22,7 @@
 		CF8E53B825F4CD3400195CD7 /* GameRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E53B725F4CD3400195CD7 /* GameRow.swift */; };
 		CFA6B76525F5D63A00CD8D76 /* RundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA6B76425F5D63A00CD8D76 /* RundedCorners.swift */; };
 		CFA6B76A25F5E3D300CD8D76 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CFA6B76925F5E3D300CD8D76 /* Kingfisher */; };
+		CFCC4FDE25F87657001B839A /* GameDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC4FDD25F87657001B839A /* GameDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		CF8E53B325F4C7D800195CD7 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		CF8E53B725F4CD3400195CD7 /* GameRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRow.swift; sourceTree = "<group>"; };
 		CFA6B76425F5D63A00CD8D76 /* RundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RundedCorners.swift; sourceTree = "<group>"; };
+		CFCC4FDD25F87657001B839A /* GameDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				CF00F11C25F60816009A9FDF /* GameDetailPage.swift */,
+				CFCC4FDD25F87657001B839A /* GameDetailViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF8E538F25F48AF700195CD7 /* AppDelegate.swift in Sources */,
+				CFCC4FDE25F87657001B839A /* GameDetailViewModel.swift in Sources */,
 				CF8E53B025F4BCE500195CD7 /* HomeViewModel.swift in Sources */,
 				CF8E53B825F4CD3400195CD7 /* GameRow.swift in Sources */,
 				CF00F11D25F60816009A9FDF /* GameDetailPage.swift in Sources */,
