@@ -21,6 +21,11 @@ struct ContentView: View {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
+            SearchGamePage()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+                }
         }
     }
 }
