@@ -5,7 +5,6 @@
 //  Created by Agus Tiyansyah Syam on 07/03/21.
 //
 
-import Foundation
 import SwiftUI
 
 struct HomePage: View {
@@ -14,16 +13,21 @@ struct HomePage: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(alignment: .center) {
+                SearchBarView(placeHolder: "Search Games", text: self.$viewModel.query)
+                    .listRowInsets(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+                
                 if !viewModel.isLoading {
                     if viewModel.games.count != 0 {
                         HomeGameList(games: self.viewModel.games)
                     }
                 } else {
                     VStack {
+                        Spacer()
                         ProgressView()
                             .progressViewStyle(CircularProgressViewStyle(tint: .green))
                             .scaleEffect(x: 2, y: 2, anchor: .center)
+                        Spacer()
                     }
                 }
             }
@@ -43,7 +47,7 @@ struct HomeGameList: View {
             ScrollView(showsIndicators: false) {
                 LazyVStack {
                     ForEach(games, id: \.id) { game in
-                        NavigationLink(destination: GameDetailPage(id: game.id)) {
+                        NavigationLink(destination: GameDetailPage(id: game.id ?? 1)) {
                             ZStack {
                                 GameRow(game: game)
                             }
@@ -57,7 +61,7 @@ struct HomeGameList: View {
             List(self.games) { game in
                 ZStack {
                     GameRow(game: game)
-                    NavigationLink(destination: GameDetailPage(id: game.id)) {
+                    NavigationLink(destination: GameDetailPage(id: game.id ?? 1)) {
                         EmptyView()
                     }
                 }

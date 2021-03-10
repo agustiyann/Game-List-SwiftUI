@@ -5,7 +5,6 @@
 //  Created by Agus Tiyansyah Syam on 07/03/21.
 //
 
-import Foundation
 import SwiftUI
 import Kingfisher
 
@@ -15,7 +14,7 @@ struct GameRow: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0, content: {
-            KFImage(URL(string: game.backgroundImage!))
+            KFImage(URL(string: game.backgroundImage ?? ""))
                 .resizable()
                 .scaledToFill()
                 .frame(width: UIScreen.main.bounds.size.width - 40, height: UIScreen.main.bounds.size.height / 4)
@@ -27,7 +26,7 @@ struct GameRow: View {
                         .foregroundColor(.clear)
                         .background(RoundedCorners(color: Color.black, oppacity: 0.3, tl: 10, tr: 10, bl: 0, br: 0))
                         .overlay(
-                            Text("🗓 \(game.released.convertToString(format: "MMM dd, yyyy")) ⭐️ \(String(game.rating))")
+                            Text("🗓 \(game.released?.convertToString(format: "MMM dd, yyyy") ?? "") ⭐️ \(String(game.rating ?? 0.0))")
                                 .fontWeight(.heavy)
                                 .font(.system(.caption))
                                 .foregroundColor(.white)
@@ -42,7 +41,7 @@ struct GameRow: View {
                         .background(RoundedCorners(color: Color.black, oppacity: 0.3, tl: 0, tr: 0, bl: 10, br: 10))
                         .frame(height: 40)
                         .overlay(
-                            Text(game.name)
+                            Text(game.name ?? "")
                                 .fontWeight(.heavy)
                                 .font(.system(.title2))
                                 .lineLimit(1)

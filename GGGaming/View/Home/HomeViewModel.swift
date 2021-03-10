@@ -29,8 +29,10 @@ class HomeViewModel: ObservableObject {
                     print("Error processinng json data: \(error)")
             }
             
-            self?.isLoading = false
-            self?.games = gameResult
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                self?.games = gameResult
+            }
         })
     }
 }

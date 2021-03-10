@@ -13,20 +13,9 @@ struct ContentView: View {
         UITableView.appearance().separatorStyle = .none
         UITableView.appearance().showsVerticalScrollIndicator = false
     }
-        
+
     var body: some View {
-        TabView {
-            HomePage()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
-            SearchGamePage()
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
-                }
-        }
+        HomePage()
     }
 }
 

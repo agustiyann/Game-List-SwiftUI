@@ -5,7 +5,6 @@
 //  Created by Agus Tiyansyah Syam on 08/03/21.
 //
 
-import Foundation
 import SwiftUI
 import Kingfisher
 
@@ -51,12 +50,12 @@ struct GameDetailView: View {
                     .frame(width: UIScreen.main.bounds.size.width, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .clipped()
                 Spacer()
-                Text(game.name)
+                Text(game.name ?? "No name")
                     .fontWeight(.heavy)
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-                Text(game.released.convertToString(format: "MMM dd, yyyy"))
+                Text("\(game.released?.convertToString(format: "MMM dd, yyyy") ?? "No data released")")
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                 Spacer()
                 Text("About")
@@ -64,7 +63,7 @@ struct GameDetailView: View {
                     .font(.title2)
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                 Spacer()
-                Text(game.description)
+                Text(game.description ?? "No description")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                 Divider()
@@ -73,12 +72,12 @@ struct GameDetailView: View {
                         Text("Rating")
                             .fontWeight(.bold)
                             .foregroundColor(.gray)
-                        Text(String(game.rating))
+                        Text(String(game.rating ?? 0.0))
                         Text("Genre")
                             .fontWeight(.bold)
                             .foregroundColor(.gray)
                             .padding(.top)
-                        ForEach(game.genres) { genre in
+                        ForEach(game.genres ?? [Genre]()) { genre in
                             Text(genre.name)
                         }
                     }
@@ -87,12 +86,12 @@ struct GameDetailView: View {
                         Text("Metascore")
                             .fontWeight(.bold)
                             .foregroundColor(.gray)
-                        Text(String(game.metaScore))
+                        Text(String(game.metaScore ?? 0))
                         Text("Average playtime")
                             .fontWeight(.bold)
                             .foregroundColor(.gray)
                             .padding(.top)
-                        Text("\(game.playtime) Hours")
+                        Text("\(game.playtime ?? 0) Hours")
                     }
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 }
