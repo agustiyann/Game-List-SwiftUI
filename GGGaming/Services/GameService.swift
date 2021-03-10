@@ -30,13 +30,6 @@ class GameService {
                 print("DataTask Error: \(error.localizedDescription)")
             }
             
-            guard let response = response as? HTTPURLResponse else {
-                print("Empty Response")
-                return
-            }
-            
-            print("Response status code: \(response.statusCode)")
-            
             guard let data = data else {
                 print("Empty Data")
                 return
@@ -64,13 +57,6 @@ class GameService {
                 completion(.failure(error))
                 print("DataTask Error: \(error.localizedDescription)")
             }
-            
-            guard let response = response as? HTTPURLResponse else {
-                print("Empty Response")
-                return
-            }
-            
-            print("Response status code: \(response.statusCode)")
             
             guard let data = data else {
                 print("Empty Data")

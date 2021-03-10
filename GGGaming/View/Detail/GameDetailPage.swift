@@ -43,7 +43,7 @@ struct GameDetailView: View {
     var game: GameDetail
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack(alignment: .leading) {
                 KFImage(URL(string: game.backgroundImage!))
                     .resizable()
@@ -56,7 +56,7 @@ struct GameDetailView: View {
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-                Text(game.released)
+                Text(game.released.convertToString(format: "MMM dd, yyyy"))
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                 Spacer()
                 Text("About")
@@ -67,34 +67,34 @@ struct GameDetailView: View {
                 Text(game.description)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-                Spacer()
-                HStack {
+                Divider()
+                HStack(alignment: .top) {
                     VStack(alignment: .leading) {
-                        Text("Platform")
+                        Text("Rating")
                             .fontWeight(.bold)
                             .foregroundColor(.gray)
-                        Text("PC, Xbox")
-                        Spacer()
+                        Text(String(game.rating))
                         Text("Genre")
                             .fontWeight(.bold)
                             .foregroundColor(.gray)
-                        Text("Action, Adventure")
+                            .padding(.top)
+                        ForEach(game.genres) { genre in
+                            Text(genre.name)
+                        }
                     }
-                    .scaledToFit()
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     VStack(alignment: .leading) {
                         Text("Metascore")
                             .fontWeight(.bold)
                             .foregroundColor(.gray)
                         Text(String(game.metaScore))
-                        Spacer()
                         Text("Average playtime")
                             .fontWeight(.bold)
                             .foregroundColor(.gray)
+                            .padding(.top)
                         Text("\(game.playtime) Hours")
                     }
-                    .scaledToFit()
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 0))
             }
@@ -106,6 +106,6 @@ struct GameDetailView: View {
 
 struct GameDetailPage_Previews: PreviewProvider {
     static var previews: some View {
-        GameDetailView(viewModel: GameDetailViewModel(), game: GameDetail(id: 1, name: "GTA V", description: "Lorem ipsum dolor sit amet.", released: "17-08-2013", backgroundImage: "gtav", rating: 4.3, metaScore: 96, playtime: 70))
+        GameDetailView(viewModel: GameDetailViewModel(), game: GameDetail(id: 1, name: "GTA V", description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.", released: Date(), backgroundImage: "gtav", rating: 4.32, metaScore: 98, playtime: 97, genres: [Genre]()))
     }
 }

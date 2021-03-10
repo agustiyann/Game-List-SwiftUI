@@ -27,7 +27,7 @@ struct GameRow: View {
                         .foregroundColor(.clear)
                         .background(RoundedCorners(color: Color.black, oppacity: 0.3, tl: 10, tr: 10, bl: 0, br: 0))
                         .overlay(
-                            Text("🗓 \(game.released) ⭐️ \(String(game.rating))")
+                            Text("🗓 \(game.released.convertToString(format: "MMM dd, yyyy")) ⭐️ \(String(game.rating))")
                                 .fontWeight(.heavy)
                                 .font(.system(.caption))
                                 .foregroundColor(.white)
@@ -60,6 +60,6 @@ struct GameRow: View {
 
 struct GameRow_Previews: PreviewProvider {
     static var previews: some View {
-        GameRow(game: Game(id: 1, name: "GTA V", released: "21-08-2018", backgroundImage: "gtav", rating: 4.5, metaScore: 97, playtime: 69))
+        GameRow(game: Game(id: 1, name: "GTA V", released: Date(), backgroundImage: "gtav", rating: 4.5, metaScore: 97, playtime: 69))
     }
 }

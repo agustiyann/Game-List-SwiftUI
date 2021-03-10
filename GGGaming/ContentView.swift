@@ -18,7 +18,7 @@ struct ContentView: View {
         TabView {
             HomePage()
                 .tabItem {
-                    Image(systemName: "star")
+                    Image(systemName: "house.fill")
                     Text("Home")
                 }
         }
