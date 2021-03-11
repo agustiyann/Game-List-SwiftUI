@@ -12,13 +12,13 @@ struct GameResponse: Decodable {
 }
 
 struct Game: Decodable, Identifiable {
-    var id: Int?
-    var name: String?
-    var released: Date?
-    var backgroundImage: String?
-    var rating: Double?
-    var metaScore: Int?
-    var playtime: Int?
+    let id: Int?
+    let name: String?
+    let released: Date?
+    let backgroundImage: String?
+    let rating: Double?
+    let metaScore: Int?
+    let playtime: Int?
 
     enum CodingKeys: String, CodingKey {
         case id

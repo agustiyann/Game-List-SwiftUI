@@ -44,7 +44,7 @@ struct GameDetailView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading) {
-                KFImage(URL(string: game.backgroundImage!))
+                KFImage(URL(string: game.backgroundImage ?? ""))
                     .resizable()
                     .scaledToFill()
                     .frame(width: UIScreen.main.bounds.size.width, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

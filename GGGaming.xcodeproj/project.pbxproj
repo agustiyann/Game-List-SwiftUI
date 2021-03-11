@@ -99,10 +99,8 @@
 		CF8E538D25F48AF700195CD7 /* GGGaming */ = {
 			isa = PBXGroup;
 			children = (
+				CFD7C65225FA065700C801FE /* Base */,
 				CFA6B76325F5D58400CD8D76 /* Utils */,
-				CF8E538E25F48AF700195CD7 /* AppDelegate.swift */,
-				CF8E539025F48AF700195CD7 /* SceneDelegate.swift */,
-				CF8E539225F48AF700195CD7 /* ContentView.swift */,
 				CF8E53A825F4912100195CD7 /* Services */,
 				CF8E53A325F48B6400195CD7 /* Models */,
 				CF8E53AD25F4BBD200195CD7 /* View */,
@@ -145,6 +143,7 @@
 				CF22E44425F9CB0B00A6415E /* Profile */,
 				CF00F11B25F6079C009A9FDF /* Detail */,
 				CF8E53AE25F4BC1A00195CD7 /* Home */,
+				CF8E539225F48AF700195CD7 /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -167,6 +166,15 @@
 				CF83416825F930A400FA75E0 /* SearchBarView.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		CFD7C65225FA065700C801FE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CF8E538E25F48AF700195CD7 /* AppDelegate.swift */,
+				CF8E539025F48AF700195CD7 /* SceneDelegate.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

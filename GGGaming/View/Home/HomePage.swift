@@ -20,6 +20,12 @@ struct HomePage: View {
                 if !viewModel.isLoading {
                     if !viewModel.games.isEmpty {
                         HomeGameList(games: self.viewModel.games)
+                    } else {
+                        Spacer()
+                        Text("No Data!")
+                            .bold()
+                        Text("Make sure your internet is connected!")
+                        Spacer()
                     }
                 } else {
                     VStack {
