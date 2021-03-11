@@ -18,13 +18,21 @@ struct HomePage: View {
                     .listRowInsets(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
 
                 if !viewModel.isLoading {
-                    if !viewModel.games.isEmpty {
-                        HomeGameList(games: self.viewModel.games)
+                    if viewModel.isSuccess {
+                        if !viewModel.games.isEmpty {
+                            HomeGameList(games: self.viewModel.games)
+                        } else {
+                            Spacer()
+                            Text("Data not found!")
+                                .bold()
+                            Text("Try another keyword!")
+                            Spacer()
+                        }
                     } else {
                         Spacer()
-                        Text("No Data!")
+                        Text("Something went wrong!")
                             .bold()
-                        Text("Make sure your internet is connected!")
+                        Text("Try again later!")
                         Spacer()
                     }
                 } else {

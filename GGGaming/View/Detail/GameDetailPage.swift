@@ -19,8 +19,23 @@ struct GameDetailPage: View {
 
     var body: some View {
         VStack {
-            if self.viewModel.detail != nil {
-                GameDetailView(viewModel: self.viewModel, game: self.viewModel.detail!)
+            if !self.viewModel.isLoading {
+                if self.viewModel.isSuccess {
+                    if self.viewModel.detail != nil {
+                        GameDetailView(viewModel: self.viewModel, game: self.viewModel.detail!)
+                    } else {
+                        Spacer()
+                        Text("No detail data!")
+                            .bold()
+                        Spacer()
+                    }
+                } else {
+                    Spacer()
+                    Text("Something went wrong!")
+                        .bold()
+                    Text("Try again later!")
+                    Spacer()
+                }
             } else {
                 VStack {
                     ProgressView()

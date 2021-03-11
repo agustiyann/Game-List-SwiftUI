@@ -30,17 +30,10 @@ class GameService {
                 print("DataTask Error: \(error.localizedDescription)")
             }
 
-            guard let data = data else {
+            guard let data = data, response != nil else {
                 print("Empty Data")
                 return
             }
-
-            guard let response = response as? HTTPURLResponse else {
-                print("Empty Response")
-                return
-            }
-
-            print("Response status code: \(response.statusCode)")
 
             do {
                 let decoder = JSONDecoder()
@@ -65,17 +58,10 @@ class GameService {
                 print("DataTask Error: \(error.localizedDescription)")
             }
 
-            guard let data = data else {
+            guard let data = data, response != nil else {
                 print("Empty Data")
                 return
             }
-
-            guard let response = response as? HTTPURLResponse else {
-                print("Empty Response")
-                return
-            }
-
-            print("Response status code: \(response.statusCode)")
 
             do {
                 let decoder = JSONDecoder()
