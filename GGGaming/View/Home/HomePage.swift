@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct HomePage: View {
-    
+
     @ObservedObject var viewModel = HomeViewModel()
-    
+
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
                 SearchBarView(placeHolder: "Search Games", text: self.$viewModel.query)
                     .listRowInsets(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
-                
+
                 if !viewModel.isLoading {
-                    if viewModel.games.count != 0 {
+                    if !viewModel.games.isEmpty {
                         HomeGameList(games: self.viewModel.games)
                     }
                 } else {
@@ -44,13 +44,14 @@ struct HomePage: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
 struct HomeGameList: View {
-    
+
     var games = [Game]()
-    
+
     var body: some View {
         if #available(iOS 14, *) {
             ScrollView(showsIndicators: false) {

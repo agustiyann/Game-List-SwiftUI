@@ -9,14 +9,14 @@ import SwiftUI
 import Kingfisher
 
 struct GameDetailPage: View {
-    
+
     @ObservedObject var viewModel = GameDetailViewModel()
     var id: Int
-    
+
     init(id: Int) {
         self.id = id
     }
-    
+
     var body: some View {
         VStack {
             if self.viewModel.detail != nil {
@@ -33,14 +33,14 @@ struct GameDetailPage: View {
             self.viewModel.fetchGameDetail(id: self.id)
         }
     }
-    
+
 }
 
 struct GameDetailView: View {
-    
+
     @ObservedObject var viewModel: GameDetailViewModel
     var game: GameDetail
-    
+
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading) {
@@ -100,11 +100,14 @@ struct GameDetailView: View {
         }
         .navigationBarTitle("Detail", displayMode: .large)
     }
-    
+
 }
 
 struct GameDetailPage_Previews: PreviewProvider {
     static var previews: some View {
-        GameDetailView(viewModel: GameDetailViewModel(), game: GameDetail(id: 1, name: "GTA V", description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.", released: Date(), backgroundImage: "gtav", rating: 4.32, metaScore: 98, playtime: 97, genres: [Genre]()))
+        GameDetailView(
+            viewModel: GameDetailViewModel(),
+            game: GameDetail(id: 1, name: "GTA V", description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.", released: Date(), backgroundImage: "gtav", rating: 4.32, metaScore: 98, playtime: 97, genres: [Genre]())
+        )
     }
 }

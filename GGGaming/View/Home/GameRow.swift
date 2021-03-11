@@ -9,9 +9,9 @@ import SwiftUI
 import Kingfisher
 
 struct GameRow: View {
-    
+
     var game: Game
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0, content: {
             KFImage(URL(string: game.backgroundImage ?? ""))
@@ -24,7 +24,7 @@ struct GameRow: View {
                     Rectangle()
                         .frame(height: 30)
                         .foregroundColor(.clear)
-                        .background(RoundedCorners(color: Color.black, oppacity: 0.3, tl: 10, tr: 10, bl: 0, br: 0))
+                        .background(RoundedCorners(color: Color.black, oppacity: 0.3, topLeft: 10, topRight: 10, bottomLeft: 0, bottomRight: 0))
                         .overlay(
                             Text("🗓 \(game.released?.convertToString(format: "MMM dd, yyyy") ?? "") ⭐️ \(String(game.rating ?? 0.0))")
                                 .fontWeight(.heavy)
@@ -38,7 +38,7 @@ struct GameRow: View {
                 .overlay(
                     Rectangle()
                         .foregroundColor(.clear)
-                        .background(RoundedCorners(color: Color.black, oppacity: 0.3, tl: 0, tr: 0, bl: 10, br: 10))
+                        .background(RoundedCorners(color: Color.black, oppacity: 0.3, topLeft: 0, topRight: 0, bottomLeft: 10, bottomRight: 10))
                         .frame(height: 40)
                         .overlay(
                             Text(game.name ?? "")

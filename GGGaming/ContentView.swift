@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+
     init() {
         UITableView.appearance().separatorStyle = .none
         UITableView.appearance().showsVerticalScrollIndicator = false
