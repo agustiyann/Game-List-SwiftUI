@@ -34,6 +34,15 @@ struct HomePage: View {
             .onAppear {
                 self.viewModel.fetchGame()
             }
+            .navigationBarTitle("Game List", displayMode: .inline)
+            .toolbar {
+                ToolbarItem {
+                    NavigationLink(
+                        destination: ProfilePage()) {
+                        Image("man")
+                    }
+                }
+            }
         }
     }
 }
@@ -56,7 +65,6 @@ struct HomeGameList: View {
                 }
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
-            .navigationBarTitle("Game List", displayMode: .large)
         } else {
             List(self.games) { game in
                 ZStack {
@@ -66,7 +74,6 @@ struct HomeGameList: View {
                     }
                 }
             }
-            .navigationBarTitle("Game List", displayMode: .large)
             .listStyle(PlainListStyle())
         }
     }
