@@ -54,8 +54,4 @@ identifier_name:
     - id
     - URL
     - GlobalAPIKey
-    - tr
-    - tl
-    - bl
-    - br
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, codeclimate, junit, html, emoji, sonarqube, markdown, github-actions-logging)
