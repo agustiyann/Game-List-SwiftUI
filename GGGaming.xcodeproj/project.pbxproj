@@ -12,6 +12,8 @@
 		CF22E44625F9CB2800A6415E /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF22E44525F9CB2800A6415E /* ProfilePage.swift */; };
 		CF497D2725FFA6C400BD786E /* FavoriteGame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF497D2525FFA6C400BD786E /* FavoriteGame.xcdatamodeld */; };
 		CF497D2A25FFA75200BD786E /* GameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF497D2925FFA75200BD786E /* GameProvider.swift */; };
+		CF497D2E25FFB61500BD786E /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF497D2D25FFB61500BD786E /* FavoriteViewModel.swift */; };
+		CF497D3125FFB77600BD786E /* FavoritePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF497D3025FFB77600BD786E /* FavoritePage.swift */; };
 		CF83415225F8DBEE00FA75E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF83415125F8DBEE00FA75E0 /* Extensions.swift */; };
 		CF83416925F930A400FA75E0 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF83416825F930A400FA75E0 /* SearchBarView.swift */; };
 		CF8E538F25F48AF700195CD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E538E25F48AF700195CD7 /* AppDelegate.swift */; };
@@ -36,6 +38,8 @@
 		CF22E44525F9CB2800A6415E /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
 		CF497D2625FFA6C400BD786E /* FavoriteGame.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteGame.xcdatamodel; sourceTree = "<group>"; };
 		CF497D2925FFA75200BD786E /* GameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProvider.swift; sourceTree = "<group>"; };
+		CF497D2D25FFB61500BD786E /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		CF497D3025FFB77600BD786E /* FavoritePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePage.swift; sourceTree = "<group>"; };
 		CF83415125F8DBEE00FA75E0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CF83416825F930A400FA75E0 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		CF8E538B25F48AF700195CD7 /* GGGaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGGaming.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +86,15 @@
 				CF22E44525F9CB2800A6415E /* ProfilePage.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		CF497D2C25FFB5ED00BD786E /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				CF497D2D25FFB61500BD786E /* FavoriteViewModel.swift */,
+				CF497D3025FFB77600BD786E /* FavoritePage.swift */,
+			);
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 		CF8E538225F48AF700195CD7 = {
@@ -146,6 +159,7 @@
 		CF8E53AD25F4BBD200195CD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CF497D2C25FFB5ED00BD786E /* Favorite */,
 				CF22E44425F9CB0B00A6415E /* Profile */,
 				CF00F11B25F6079C009A9FDF /* Detail */,
 				CF8E53AE25F4BC1A00195CD7 /* Home */,
@@ -281,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF497D2E25FFB61500BD786E /* FavoriteViewModel.swift in Sources */,
 				CF8E538F25F48AF700195CD7 /* AppDelegate.swift in Sources */,
 				CFCC4FDE25F87657001B839A /* GameDetailViewModel.swift in Sources */,
 				CF8E53B025F4BCE500195CD7 /* HomeViewModel.swift in Sources */,
@@ -294,6 +309,7 @@
 				CF83416925F930A400FA75E0 /* SearchBarView.swift in Sources */,
 				CF497D2725FFA6C400BD786E /* FavoriteGame.xcdatamodeld in Sources */,
 				CFA6B76525F5D63A00CD8D76 /* RundedCorners.swift in Sources */,
+				CF497D3125FFB77600BD786E /* FavoritePage.swift in Sources */,
 				CF22E44625F9CB2800A6415E /* ProfilePage.swift in Sources */,
 				CF00F12125F678C2009A9FDF /* GameDetail.swift in Sources */,
 				CF497D2A25FFA75200BD786E /* GameProvider.swift in Sources */,

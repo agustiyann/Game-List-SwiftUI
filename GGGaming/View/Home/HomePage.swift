@@ -11,6 +11,9 @@ struct HomePage: View {
 
     @ObservedObject var viewModel = HomeViewModel()
 
+    @State var linkProfile = false
+    @State var linkFavorite = false
+
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
@@ -48,13 +51,23 @@ struct HomePage: View {
             .onAppear {
                 self.viewModel.fetchGame()
             }
+            .background(
+                NavigationLink(
+                    destination: FavoritePage(), isActive: $linkFavorite) {}
+            )
+            .background(
+                NavigationLink(
+                    destination: ProfilePage(), isActive: $linkProfile) {}
+            )
             .navigationBarTitle("Game List", displayMode: .inline)
             .toolbar {
-                ToolbarItem {
-                    NavigationLink(
-                        destination: ProfilePage()) {
-                        Image("man")
-                    }
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button(action: { linkFavorite = true }, label: {
+                        Image(systemName: "star")
+                    })
+                    Button(action: { linkProfile = true }, label: {
+                        Image(systemName: "person.circle")
+                    })
                 }
             }
         }
