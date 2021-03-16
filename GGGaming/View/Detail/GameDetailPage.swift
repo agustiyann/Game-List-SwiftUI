@@ -55,6 +55,8 @@ struct GameDetailPage: View {
 
 struct GameDetailView: View {
 
+    @Environment(\.presentationMode) var presentationMode
+
     @ObservedObject var viewModel: GameDetailViewModel
 
     var game: GameDetail
@@ -153,9 +155,11 @@ struct GameDetailView: View {
                             return Alert(title: Text("Added Successfuly."), message: Text("The game has been successfully added to the favorites list"))
                         }
                     })
+                    .onAppear {
+                        self.showAlert = false
+                    }
                 case "favorite":
                     Button(action: {
-                        self.viewModel.deleteFromFavorite(id: game.id!)
                         self.deleted = true
                     }, label: {
                         Text("Delete from Favorite")
@@ -163,8 +167,14 @@ struct GameDetailView: View {
                             .foregroundColor(.red)
                     })
                     .alert(isPresented: $deleted, content: {
-                        Alert(title: Text("Deleted Successfuly."), message: Text("The game has been successfully deleted from the favorites list"))
+                        Alert(title: Text("Warning"), message: Text("Do you want to remove this game from the favorite list?"), primaryButton: .default(Text("No")), secondaryButton: .destructive(Text("Yes"), action: {
+                            self.viewModel.deleteFromFavorite(id: game.id!)
+                            self.presentationMode.wrappedValue.dismiss()
+                        }))
                     })
+                    .onAppear {
+                        self.deleted = false
+                    }
                 default:
                     Button(action: {}, label: {
                         Text("-")
