@@ -8,7 +8,9 @@
 import Foundation
 
 class GameDetailViewModel: ObservableObject {
+
     private let gameService = GameService()
+    private let gameProvider = GameProvider()
 
     @Published var detail: GameDetail?
     @Published var isLoading = false
@@ -32,6 +34,14 @@ class GameDetailViewModel: ObservableObject {
                 self?.isLoading = false
                 self?.isSuccess = success
                 self?.detail = gameDetail
+            }
+        })
+    }
+
+    func addToFavorite(game: Game) {
+        self.gameProvider.addFavorite(game: game, completion: {
+            DispatchQueue.main.async {
+
             }
         })
     }

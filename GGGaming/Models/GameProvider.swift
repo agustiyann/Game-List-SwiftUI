@@ -80,28 +80,51 @@ class GameProvider {
         }
     }
 
-    func addFavorite(_ id: Int, _ name: String, _ released: Date, _ image: String, _ rating: Double, _ metascore: Int, _ playtime: Int, completion: @escaping() -> Void) {
+    func addFavorite(game: Game, completion: @escaping() -> Void) {
         let taskContext = newTaskContext()
-        taskContext.performAndWait {
-            if let entity = NSEntityDescription.entity(forEntityName: "FavoriteGame", in: taskContext) {
-                let game = NSManagedObject(entity: entity, insertInto: taskContext)
+        let isExist = someEntityExists(id: game.id!)
 
-                game.setValue(id, forKey: "id")
-                game.setValue(name, forKey: "name")
-                game.setValue(released, forKey: "released")
-                game.setValue(image, forKey: "image")
-                game.setValue(rating, forKey: "rating")
-                game.setValue(metascore, forKey: "metascore")
-                game.setValue(playtime, forKey: "playtime")
+        if isExist {
+            print("exist")
+        } else {
+            print("not exist")
+            taskContext.performAndWait {
+                if let entity = NSEntityDescription.entity(forEntityName: "FavoriteGame", in: taskContext) {
+                    let data = NSManagedObject(entity: entity, insertInto: taskContext)
 
-                do {
-                    try taskContext.save()
-                    completion()
-                } catch let error as NSError {
-                    print("Could not save. \(error), \(error.userInfo)")
+                    data.setValue(game.id, forKey: "id")
+                    data.setValue(game.name, forKey: "name")
+                    data.setValue(game.released, forKey: "released")
+                    data.setValue(game.backgroundImage, forKey: "image")
+                    data.setValue(game.rating, forKey: "rating")
+                    data.setValue(game.metaScore, forKey: "metascore")
+                    data.setValue(game.playtime, forKey: "playtime")
+
+                    do {
+                        try taskContext.save()
+                        completion()
+                    } catch let error as NSError {
+                        print("Could not save. \(error), \(error.userInfo)")
+                    }
                 }
             }
         }
+    }
+
+    func someEntityExists(id: Int) -> Bool {
+        let task = newTaskContext()
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteGame")
+        fetchRequest.predicate = NSPredicate(format: "id = %d", id)
+
+        var results: [NSManagedObject] = []
+
+        do {
+            results = try task.fetch(fetchRequest)
+        } catch {
+            print("error executing fetch request: \(error)")
+        }
+
+        return !results.isEmpty
     }
 
     func deleteAllFavoriteGame(completion: @escaping() -> Void) {

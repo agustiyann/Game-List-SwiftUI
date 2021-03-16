@@ -20,6 +20,7 @@ class FavoriteViewModel: ObservableObject {
         self.provider.getAllFavoriteGame(completion: { (games) in
             DispatchQueue.main.async {
                 self.games = games
+                print(games.count)
             }
         })
     }

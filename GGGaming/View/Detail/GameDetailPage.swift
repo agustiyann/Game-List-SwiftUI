@@ -12,9 +12,11 @@ struct GameDetailPage: View {
 
     @ObservedObject var viewModel = GameDetailViewModel()
     var id: Int
+    var origin: String
 
-    init(id: Int) {
+    init(id: Int, origin: String) {
         self.id = id
+        self.origin = origin
     }
 
     var body: some View {
@@ -22,7 +24,7 @@ struct GameDetailPage: View {
             if !self.viewModel.isLoading {
                 if self.viewModel.isSuccess {
                     if self.viewModel.detail != nil {
-                        GameDetailView(viewModel: self.viewModel, game: self.viewModel.detail!)
+                        GameDetailView(viewModel: self.viewModel, game: self.viewModel.detail!, origin: self.origin)
                     } else {
                         Spacer()
                         Text("No detail data!")
@@ -54,7 +56,9 @@ struct GameDetailPage: View {
 struct GameDetailView: View {
 
     @ObservedObject var viewModel: GameDetailViewModel
+
     var game: GameDetail
+    var origin: String
 
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -114,15 +118,39 @@ struct GameDetailView: View {
             }
         }
         .navigationBarTitle("Detail", displayMode: .large)
+        .toolbar {
+            ToolbarItem(placement: .status) {
+                switch origin {
+                case "home":
+                    Button(action: {
+                        self.viewModel.addToFavorite(game: Game(id: game.id, name: game.name, released: game.released, backgroundImage: game.backgroundImage, rating: game.rating, metaScore: game.metaScore, playtime: game.playtime))
+                        print("add to favorite")
+                    }, label: {
+                        Text("Add to Favorite")
+                    })
+                case "favorite":
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Text("Delete from Favorite")
+                    })
+                default:
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Text("-")
+                    })
+                }
+            }
+        }
     }
 
 }
 
 struct GameDetailPage_Previews: PreviewProvider {
     static var previews: some View {
-        GameDetailView(
-            viewModel: GameDetailViewModel(),
-            game: GameDetail(id: 1, name: "GTA V", description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.", released: Date(), backgroundImage: "gtav", rating: 4.32, metaScore: 98, playtime: 97, genres: [Genre]())
-        )
+        NavigationView {
+            GameDetailView(
+                viewModel: GameDetailViewModel(),
+                game: GameDetail(id: 1, name: "GTA V", description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.", released: Date(), backgroundImage: "gtav", rating: 4.32, metaScore: 98, playtime: 97, genres: [Genre]()),
+                origin: "favorite"
+            )
+        }
     }
 }

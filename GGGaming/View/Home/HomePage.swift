@@ -84,7 +84,7 @@ struct HomeGameList: View {
             ScrollView(showsIndicators: false) {
                 LazyVStack {
                     ForEach(games, id: \.id) { game in
-                        NavigationLink(destination: GameDetailPage(id: game.id ?? 1)) {
+                        NavigationLink(destination: GameDetailPage(id: game.id ?? 1, origin: "home")) {
                             ZStack {
                                 GameRow(game: game)
                             }
@@ -97,7 +97,7 @@ struct HomeGameList: View {
             List(self.games) { game in
                 ZStack {
                     GameRow(game: game)
-                    NavigationLink(destination: GameDetailPage(id: game.id ?? 1)) {
+                    NavigationLink(destination: GameDetailPage(id: game.id ?? 1, origin: "home")) {
                         EmptyView()
                     }
                 }
