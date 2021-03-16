@@ -60,6 +60,14 @@ struct GameDetailView: View {
     var game: GameDetail
     var origin: String
 
+    enum ActiveAlert {
+        case exist, noExist
+    }
+
+    @State private var showAlert = false
+    @State private var activeAlert: ActiveAlert = .exist
+    @State private var deleted = false
+
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading) {
@@ -123,17 +131,42 @@ struct GameDetailView: View {
                 switch origin {
                 case "home":
                     Button(action: {
-                        self.viewModel.addToFavorite(game: Game(id: game.id, name: game.name, released: game.released, backgroundImage: game.backgroundImage, rating: game.rating, metaScore: game.metaScore, playtime: game.playtime))
-                        print("add to favorite")
+                        if !self.viewModel.checkIsExist(id: game.id!) {
+                            self.activeAlert = .noExist
+                            self.viewModel.addToFavorite(game: Game(id: game.id, name: game.name, released: game.released, backgroundImage: game.backgroundImage, rating: game.rating, metaScore: game.metaScore, playtime: game.playtime))
+                            print("add to favorite")
+                        } else {
+                            self.activeAlert = .exist
+                            print("add to favorite exist")
+                        }
+                        self.showAlert = true
                     }, label: {
                         Text("Add to Favorite")
+                            .bold()
+                            .foregroundColor(.green)
+                    })
+                    .alert(isPresented: $showAlert, content: {
+                        switch activeAlert {
+                        case .exist:
+                            return Alert(title: Text("Already Exist!"), message: Text("The game you choose is already in the favorites list."))
+                        case .noExist:
+                            return Alert(title: Text("Added Successfuly."), message: Text("The game has been successfully added to the favorites list"))
+                        }
                     })
                 case "favorite":
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Button(action: {
+                        self.viewModel.deleteFromFavorite(id: game.id!)
+                        self.deleted = true
+                    }, label: {
                         Text("Delete from Favorite")
+                            .bold()
+                            .foregroundColor(.red)
+                    })
+                    .alert(isPresented: $deleted, content: {
+                        Alert(title: Text("Deleted Successfuly."), message: Text("The game has been successfully deleted from the favorites list"))
                     })
                 default:
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Button(action: {}, label: {
                         Text("-")
                     })
                 }

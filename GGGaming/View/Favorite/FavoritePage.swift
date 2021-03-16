@@ -24,7 +24,7 @@ struct FavoritePage: View {
                             }
                         }
                     }
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                 }
             } else {
                 Spacer()
@@ -37,6 +37,7 @@ struct FavoritePage: View {
         .onAppear {
             self.viewModel.getAllFavoriteGame()
         }
+        .navigationTitle("Favorite")
     }
 }
 

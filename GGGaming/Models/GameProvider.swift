@@ -82,30 +82,23 @@ class GameProvider {
 
     func addFavorite(game: Game, completion: @escaping() -> Void) {
         let taskContext = newTaskContext()
-        let isExist = someEntityExists(id: game.id!)
+        taskContext.performAndWait {
+            if let entity = NSEntityDescription.entity(forEntityName: "FavoriteGame", in: taskContext) {
+                let data = NSManagedObject(entity: entity, insertInto: taskContext)
 
-        if isExist {
-            print("exist")
-        } else {
-            print("not exist")
-            taskContext.performAndWait {
-                if let entity = NSEntityDescription.entity(forEntityName: "FavoriteGame", in: taskContext) {
-                    let data = NSManagedObject(entity: entity, insertInto: taskContext)
+                data.setValue(game.id, forKey: "id")
+                data.setValue(game.name, forKey: "name")
+                data.setValue(game.released, forKey: "released")
+                data.setValue(game.backgroundImage, forKey: "image")
+                data.setValue(game.rating, forKey: "rating")
+                data.setValue(game.metaScore, forKey: "metascore")
+                data.setValue(game.playtime, forKey: "playtime")
 
-                    data.setValue(game.id, forKey: "id")
-                    data.setValue(game.name, forKey: "name")
-                    data.setValue(game.released, forKey: "released")
-                    data.setValue(game.backgroundImage, forKey: "image")
-                    data.setValue(game.rating, forKey: "rating")
-                    data.setValue(game.metaScore, forKey: "metascore")
-                    data.setValue(game.playtime, forKey: "playtime")
-
-                    do {
-                        try taskContext.save()
-                        completion()
-                    } catch let error as NSError {
-                        print("Could not save. \(error), \(error.userInfo)")
-                    }
+                do {
+                    try taskContext.save()
+                    completion()
+                } catch let error as NSError {
+                    print("Could not save. \(error), \(error.userInfo)")
                 }
             }
         }

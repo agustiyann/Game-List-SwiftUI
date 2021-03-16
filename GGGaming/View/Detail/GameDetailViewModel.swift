@@ -39,10 +39,14 @@ class GameDetailViewModel: ObservableObject {
     }
 
     func addToFavorite(game: Game) {
-        self.gameProvider.addFavorite(game: game, completion: {
-            DispatchQueue.main.async {
+        self.gameProvider.addFavorite(game: game, completion: {})
+    }
 
-            }
-        })
+    func checkIsExist(id: Int) -> Bool {
+        return self.gameProvider.someEntityExists(id: id)
+    }
+
+    func deleteFromFavorite(id: Int) {
+        self.gameProvider.deleteFavoriteGame(id, completion: {})
     }
 }
