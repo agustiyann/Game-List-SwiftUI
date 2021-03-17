@@ -63,7 +63,7 @@ struct HomePage: View {
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: { linkFavorite = true }, label: {
-                        Image(systemName: "star")
+                        Image(systemName: "heart")
                     })
                     Button(action: { linkProfile = true }, label: {
                         Image(systemName: "person.circle")
