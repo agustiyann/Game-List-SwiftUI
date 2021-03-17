@@ -32,6 +32,7 @@
 		CFA6B76525F5D63A00CD8D76 /* RundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA6B76425F5D63A00CD8D76 /* RundedCorners.swift */; };
 		CFA6B76A25F5E3D300CD8D76 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CFA6B76925F5E3D300CD8D76 /* Kingfisher */; };
 		CFCC4FDE25F87657001B839A /* GameDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC4FDD25F87657001B839A /* GameDetailViewModel.swift */; };
+		CFDA5C9B2601F09E0042C128 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA5C9A2601F09E0042C128 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		CF8E53B725F4CD3400195CD7 /* GameRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRow.swift; sourceTree = "<group>"; };
 		CFA6B76425F5D63A00CD8D76 /* RundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RundedCorners.swift; sourceTree = "<group>"; };
 		CFCC4FDD25F87657001B839A /* GameDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewModel.swift; sourceTree = "<group>"; };
+		CFDA5C9A2601F09E0042C128 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				CFA6B76425F5D63A00CD8D76 /* RundedCorners.swift */,
 				CF83415125F8DBEE00FA75E0 /* Extensions.swift */,
 				CF83416825F930A400FA75E0 /* SearchBarView.swift */,
+				CFDA5C9A2601F09E0042C128 /* ImagePicker.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				CF8E53B825F4CD3400195CD7 /* GameRow.swift in Sources */,
 				CF00F11D25F60816009A9FDF /* GameDetailPage.swift in Sources */,
 				CF8E539125F48AF700195CD7 /* SceneDelegate.swift in Sources */,
+				CFDA5C9B2601F09E0042C128 /* ImagePicker.swift in Sources */,
 				CF8E53AA25F4917300195CD7 /* GameService.swift in Sources */,
 				CF8E539325F48AF700195CD7 /* ContentView.swift in Sources */,
 				CF83415225F8DBEE00FA75E0 /* Extensions.swift in Sources */,

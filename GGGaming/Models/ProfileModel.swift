@@ -10,6 +10,16 @@ import Foundation
 struct ProfileModel {
     static let nameKey = "name"
     static let aboutKey = "about"
+    static let imageKey = "image"
+
+    static var image: Data {
+        get {
+            return UserDefaults.standard.data(forKey: imageKey) ?? Data.empty
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: imageKey)
+        }
+    }
 
     static var name: String {
         get {
