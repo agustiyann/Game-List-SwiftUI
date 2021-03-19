@@ -15,7 +15,26 @@ struct ContentView: View {
     }
 
     var body: some View {
-        HomePage()
+        TabView {
+            HomePage()
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
+
+            FavoritePage()
+                .tabItem {
+                    Image(systemName: "heart.fill")
+                    Text("Favorite")
+                }
+
+            ProfilePage()
+                .tabItem {
+                    Image(systemName: "person.circle.fill")
+                    Text("Profile")
+                }
+        }
+        .accentColor(.green)
     }
 }
 

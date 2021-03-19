@@ -15,53 +15,55 @@ struct ProfilePage: View {
     @State var image: Image?
 
     var body: some View {
-        VStack(alignment: .center, content: {
-            if image != nil {
-                image?
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 200, height: 200, alignment: .center)
-                    .cornerRadius(100)
-                    .padding(.top)
-            } else {
-                Image("me")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 200, height: 200, alignment: .center)
-                    .cornerRadius(100)
-                    .padding(.top)
-            }
+        NavigationView {
+            VStack(alignment: .center, content: {
+                if image != nil {
+                    image?
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 200, height: 200, alignment: .center)
+                        .cornerRadius(100)
+                        .padding(.top)
+                } else {
+                    Image("me")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 200, height: 200, alignment: .center)
+                        .cornerRadius(100)
+                        .padding(.top)
+                }
 
-            Text(name)
-                .font(.title3)
-                .fontWeight(.bold)
-            Text(about)
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .multilineTextAlignment(.center)
-                .padding()
-            Spacer()
-        })
-        .onAppear {
-            ProfileModel.synchronize()
-            if !ProfileModel.name.isEmpty && !ProfileModel.about.isEmpty {
-                name = ProfileModel.name
-                about = ProfileModel.about
-                self.image = Image(uiImage: UIImage(data: ProfileModel.image) ?? UIImage(imageLiteralResourceName: "me"))
-            } else {
-                name = "Agus Tiyansyah Syam"
-                about = "IT Student - Aspiring iOS Developer"
+                Text(name)
+                    .font(.title3)
+                    .fontWeight(.bold)
+                Text(about)
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .multilineTextAlignment(.center)
+                    .padding()
+                Spacer()
+            })
+            .onAppear {
+                ProfileModel.synchronize()
+                if !ProfileModel.name.isEmpty && !ProfileModel.about.isEmpty {
+                    name = ProfileModel.name
+                    about = ProfileModel.about
+                    self.image = Image(uiImage: UIImage(data: ProfileModel.image) ?? UIImage(imageLiteralResourceName: "me"))
+                } else {
+                    name = "Agus Tiyansyah Syam"
+                    about = "IT Student - Aspiring iOS Developer"
+                }
             }
-        }
-        .background(
-            NavigationLink(
-                destination: EditProfilePage(), isActive: $linkEdit) {}
-        )
-        .navigationBarTitle(Text("Profile"), displayMode: .inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: { linkEdit = true }, label: {
-                    Image(systemName: "square.and.pencil")
-                })
+            .background(
+                NavigationLink(
+                    destination: EditProfilePage(), isActive: $linkEdit) {}
+            )
+            .navigationBarTitle(Text("Profile"), displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { linkEdit = true }, label: {
+                        Image(systemName: "square.and.pencil")
+                    })
+                }
             }
         }
     }
@@ -69,8 +71,6 @@ struct ProfilePage: View {
 
 struct ProfilePage_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            ProfilePage()
-        }
+        ProfilePage()
     }
 }
