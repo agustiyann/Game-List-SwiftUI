@@ -12,19 +12,13 @@ struct GameDetailPage: View {
 
     @ObservedObject var viewModel = GameDetailViewModel()
     var id: Int
-    var origin: String
-
-    init(id: Int, origin: String) {
-        self.id = id
-        self.origin = origin
-    }
 
     var body: some View {
         VStack {
             if !self.viewModel.isLoading {
                 if self.viewModel.isSuccess {
                     if self.viewModel.detail != nil {
-                        GameDetailView(viewModel: self.viewModel, game: self.viewModel.detail!, origin: self.origin)
+                        GameDetailView(viewModel: self.viewModel, game: self.viewModel.detail!)
                     } else {
                         Spacer()
                         Text("No detail data!")
@@ -58,8 +52,7 @@ struct GameDetailPage_Previews: PreviewProvider {
         NavigationView {
             GameDetailView(
                 viewModel: GameDetailViewModel(),
-                game: GameDetail(id: 1, name: "GTA V", description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.", released: Date(), backgroundImage: "gtav", rating: 4.32, metaScore: 98, playtime: 97, genres: [Genre]()),
-                origin: "favorite"
+                game: GameDetail(id: 1, name: "GTA V", description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.", released: Date(), backgroundImage: "gtav", rating: 4.32, metaScore: 98, playtime: 97, genres: [Genre]())
             )
         }
     }

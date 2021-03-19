@@ -104,20 +104,21 @@ class GameProvider {
         }
     }
 
-    func someEntityExists(id: Int) -> Bool {
+    func someEntityExists(id: Int, completion: @escaping (_ isExist: Bool) -> Void) {
         let task = newTaskContext()
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteGame")
+        fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "id = %d", id)
 
-        var results: [NSManagedObject] = []
-
         do {
-            results = try task.fetch(fetchRequest)
-        } catch {
-            print("error executing fetch request: \(error)")
+            if try task.fetch(fetchRequest).first != nil {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
         }
-
-        return !results.isEmpty
     }
 
     func deleteAllFavoriteGame(completion: @escaping() -> Void) {

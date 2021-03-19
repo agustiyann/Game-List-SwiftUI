@@ -15,6 +15,7 @@ class GameDetailViewModel: ObservableObject {
     @Published var detail: GameDetail?
     @Published var isLoading = false
     @Published var isSuccess = true
+    @Published var isFavorite: Bool = false
 
     func fetchGameDetail(id: Int) {
         self.isLoading = true
@@ -35,18 +36,32 @@ class GameDetailViewModel: ObservableObject {
                 self?.isSuccess = success
                 self?.detail = gameDetail
             }
+
+            self?.checkIsExist(id: gameDetail?.id ?? 1)
         })
     }
 
     func addToFavorite(game: Game) {
-        self.gameProvider.addFavorite(game: game, completion: {})
+        self.gameProvider.addFavorite(game: game, completion: {
+            DispatchQueue.main.async {
+                self.isFavorite = true
+            }
+        })
     }
 
-    func checkIsExist(id: Int) -> Bool {
-        return self.gameProvider.someEntityExists(id: id)
+    func checkIsExist(id: Int) {
+        return self.gameProvider.someEntityExists(id: id, completion: { (isExist) in
+            DispatchQueue.main.async {
+                self.isFavorite = isExist
+            }
+        })
     }
 
     func deleteFromFavorite(id: Int) {
-        self.gameProvider.deleteFavoriteGame(id, completion: {})
+        self.gameProvider.deleteFavoriteGame(id, completion: {
+            DispatchQueue.main.async {
+                self.isFavorite = false
+            }
+        })
     }
 }

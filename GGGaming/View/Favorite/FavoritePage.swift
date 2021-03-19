@@ -18,7 +18,7 @@ struct FavoritePage: View {
                     ScrollView(showsIndicators: false) {
                         LazyVStack {
                             ForEach(self.viewModel.games, id: \.id) { game in
-                                NavigationLink(destination: GameDetailPage(id: game.id ?? 1, origin: "favorite")) {
+                                NavigationLink(destination: GameDetailPage(id: game.id ?? 1)) {
                                     ZStack {
                                         GameRow(game: game)
                                     }
