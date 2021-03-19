@@ -51,25 +51,7 @@ struct HomePage: View {
             .onAppear {
                 self.viewModel.fetchGame()
             }
-            .background(
-                NavigationLink(
-                    destination: FavoritePage(), isActive: $linkFavorite) {}
-            )
-            .background(
-                NavigationLink(
-                    destination: ProfilePage(), isActive: $linkProfile) {}
-            )
             .navigationBarTitle("Game List", displayMode: .inline)
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: { linkFavorite = true }, label: {
-                        Image(systemName: "heart")
-                    })
-                    Button(action: { linkProfile = true }, label: {
-                        Image(systemName: "person.circle")
-                    })
-                }
-            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
