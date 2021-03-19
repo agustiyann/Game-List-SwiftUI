@@ -17,9 +17,9 @@ struct HomePage: View {
                 SearchBarView(placeHolder: "Search Games", text: self.$viewModel.query)
                     .listRowInsets(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
 
-                if !viewModel.isLoading {
-                    if viewModel.isSuccess {
-                        if !viewModel.games.isEmpty {
+                if !self.viewModel.isLoading {
+                    if self.viewModel.isSuccess {
+                        if !self.viewModel.games.isEmpty {
                             HomeGameList(games: self.viewModel.games)
                         } else {
                             Spacer()

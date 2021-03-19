@@ -14,22 +14,32 @@ struct FavoritePage: View {
     var body: some View {
         NavigationView {
             VStack {
-                if !self.viewModel.games.isEmpty {
-                    List(self.viewModel.games) { game in
-                        ZStack {
-                            GameRow(game: game)
-                            NavigationLink(destination: GameDetailPage(id: game.id ?? 1)) {
-                                EmptyView()
+                if !self.viewModel.isLoading {
+                    if !self.viewModel.games.isEmpty {
+                        List(self.viewModel.games) { game in
+                            ZStack {
+                                GameRow(game: game)
+                                NavigationLink(destination: GameDetailPage(id: game.id ?? 1)) {
+                                    EmptyView()
+                                }
                             }
                         }
+                        .listStyle(PlainListStyle())
+                    } else {
+                        Spacer()
+                        Text("No favorite game.")
+                            .bold()
+                        Text("Add your favorite games!")
+                        Spacer()
                     }
-                    .listStyle(PlainListStyle())
                 } else {
-                    Spacer()
-                    Text("No favorite game.")
-                        .bold()
-                    Text("Add your favorite games!")
-                    Spacer()
+                    VStack {
+                        Spacer()
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: .green))
+                            .scaleEffect(x: 2, y: 2, anchor: .center)
+                        Spacer()
+                    }
                 }
             }
             .onAppear {
