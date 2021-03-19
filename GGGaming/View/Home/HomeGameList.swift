@@ -12,30 +12,15 @@ struct HomeGameList: View {
     var games = [Game]()
 
     var body: some View {
-        if #available(iOS 14, *) {
-            ScrollView(showsIndicators: false) {
-                LazyVStack {
-                    ForEach(games, id: \.id) { game in
-                        NavigationLink(destination: GameDetailPage(id: game.id ?? 1)) {
-                            ZStack {
-                                GameRow(game: game)
-                            }
-                        }
-                    }
-                }
-                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-            }
-        } else {
-            List(self.games) { game in
-                ZStack {
-                    GameRow(game: game)
-                    NavigationLink(destination: GameDetailPage(id: game.id ?? 1)) {
-                        EmptyView()
-                    }
+        List(self.games) { game in
+            ZStack {
+                GameRow(game: game)
+                NavigationLink(destination: GameDetailPage(id: game.id ?? 1)) {
+                    EmptyView()
                 }
             }
-            .listStyle(PlainListStyle())
         }
+        .listStyle(PlainListStyle())
     }
 }
 

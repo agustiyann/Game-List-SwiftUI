@@ -15,18 +15,15 @@ struct FavoritePage: View {
         NavigationView {
             VStack {
                 if !self.viewModel.games.isEmpty {
-                    ScrollView(showsIndicators: false) {
-                        LazyVStack {
-                            ForEach(self.viewModel.games, id: \.id) { game in
-                                NavigationLink(destination: GameDetailPage(id: game.id ?? 1)) {
-                                    ZStack {
-                                        GameRow(game: game)
-                                    }
-                                }
+                    List(self.viewModel.games) { game in
+                        ZStack {
+                            GameRow(game: game)
+                            NavigationLink(destination: GameDetailPage(id: game.id ?? 1)) {
+                                EmptyView()
                             }
                         }
-                        .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                     }
+                    .listStyle(PlainListStyle())
                 } else {
                     Spacer()
                     Text("No favorite game.")

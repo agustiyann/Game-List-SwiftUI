@@ -14,9 +14,6 @@ struct GameDetailView: View {
 
     var game: GameDetail
 
-    @State private var showAlert = false
-    @State private var deleted = false
-
     func addToFavorite() {
         self.viewModel.addToFavorite(game: Game(id: game.id, name: game.name, released: game.released, backgroundImage: game.backgroundImage, rating: game.rating, metaScore: game.metaScore, playtime: game.playtime))
     }
@@ -103,56 +100,6 @@ struct GameDetailView: View {
                         Image(systemName: "heart")
                     })
                 }
-//                switch origin {
-//                case "home":
-//                    Button(action: {
-//                        if !self.viewModel.checkIsExist(id: game.id!) {
-//                            self.activeAlert = .noExist
-//                            self.viewModel.addToFavorite(game: Game(id: game.id, name: game.name, released: game.released, backgroundImage: game.backgroundImage, rating: game.rating, metaScore: game.metaScore, playtime: game.playtime))
-//                            print("add to favorite")
-//                        } else {
-//                            self.activeAlert = .exist
-//                            print("add to favorite exist")
-//                        }
-//                        self.showAlert = true
-//                    }, label: {
-//                        Text("Add to Favorite")
-//                            .bold()
-//                            .foregroundColor(.green)
-//                    })
-//                    .alert(isPresented: $showAlert, content: {
-//                        switch activeAlert {
-//                        case .exist:
-//                            return Alert(title: Text("Already Exist!"), message: Text("The game you choose is already in the favorites list."))
-//                        case .noExist:
-//                            return Alert(title: Text("Added Successfuly."), message: Text("The game has been successfully added to the favorites list"))
-//                        }
-//                    })
-//                    .onAppear {
-//                        self.showAlert = false
-//                    }
-//                case "favorite":
-//                    Button(action: {
-//                        self.deleted = true
-//                    }, label: {
-//                        Text("Delete from Favorite")
-//                            .bold()
-//                            .foregroundColor(.red)
-//                    })
-//                    .alert(isPresented: $deleted, content: {
-//                        Alert(title: Text("Warning"), message: Text("Do you want to remove this game from the favorite list?"), primaryButton: .default(Text("No")), secondaryButton: .destructive(Text("Yes"), action: {
-//                            self.viewModel.deleteFromFavorite(id: game.id!)
-//                            self.presentationMode.wrappedValue.dismiss()
-//                        }))
-//                    })
-//                    .onAppear {
-//                        self.deleted = false
-//                    }
-//                default:
-//                    Button(action: {}, label: {
-//                        Text("-")
-//                    })
-//                }
             }
         }
     }

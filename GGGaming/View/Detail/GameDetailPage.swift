@@ -40,9 +40,9 @@ struct GameDetailPage: View {
                 }
             }
         }
-        .onAppear {
+        .onAppear(perform: {
             self.viewModel.fetchGameDetail(id: self.id)
-        }
+        })
     }
 
 }

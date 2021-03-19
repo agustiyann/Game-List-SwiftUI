@@ -11,9 +11,6 @@ struct HomePage: View {
 
     @ObservedObject var viewModel = HomeViewModel()
 
-    @State var linkProfile = false
-    @State var linkFavorite = false
-
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
