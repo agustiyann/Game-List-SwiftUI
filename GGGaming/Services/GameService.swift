@@ -11,6 +11,7 @@ class GameService {
 
     private let urlSession = URLSession.shared
     private let baseUrl = "https://api.rawg.io/api/"
+    // api key
 
     func getGameList(query: String?, completion: @escaping (Result<GameResponse, Error>) -> Void) {
         var components: URLComponents = URLComponents(string: self.baseUrl + "games")!

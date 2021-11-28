@@ -13,7 +13,6 @@
 		CF3D58F32753379D00529B8C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CF3D58F12753379D00529B8C /* LICENSE */; };
 		CF3D58F42753379D00529B8C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CF3D58F22753379D00529B8C /* README.md */; };
 		CF3D58F62753384800529B8C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = CF3D58F52753384800529B8C /* .swiftlint.yml */; };
-		CF3D58F827533ACD00529B8C /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3D58F727533ACD00529B8C /* Services.swift */; };
 		CF4645BA260104CF00E84A6F /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4645B9260104CF00E84A6F /* ProfileModel.swift */; };
 		CF4645BD2601073700E84A6F /* EditProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4645BC2601073700E84A6F /* EditProfilePage.swift */; };
 		CF497D2725FFA6C400BD786E /* FavoriteGame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF497D2525FFA6C400BD786E /* FavoriteGame.xcdatamodeld */; };
@@ -48,7 +47,6 @@
 		CF3D58F12753379D00529B8C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		CF3D58F22753379D00529B8C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		CF3D58F52753384800529B8C /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		CF3D58F727533ACD00529B8C /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		CF4645B9260104CF00E84A6F /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		CF4645BC2601073700E84A6F /* EditProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePage.swift; sourceTree = "<group>"; };
 		CF497D2625FFA6C400BD786E /* FavoriteGame.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteGame.xcdatamodel; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				CF8E53A925F4917300195CD7 /* GameService.swift */,
-				CF3D58F727533ACD00529B8C /* Services.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -335,7 +332,6 @@
 				CFDA5C9B2601F09E0042C128 /* ImagePicker.swift in Sources */,
 				CF8E53AA25F4917300195CD7 /* GameService.swift in Sources */,
 				CFFF94212604B63D00BE5653 /* GameDetailView.swift in Sources */,
-				CF3D58F827533ACD00529B8C /* Services.swift in Sources */,
 				CF8E539325F48AF700195CD7 /* ContentView.swift in Sources */,
 				CF83415225F8DBEE00FA75E0 /* Extensions.swift in Sources */,
 				CF8E53B425F4C7D800195CD7 /* HomePage.swift in Sources */,
